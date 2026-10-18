@@ -34,7 +34,7 @@ async function lookup(){
   if(Number.isFinite(data.year))document.getElementById('newYear').value=data.year;
   if(data.set_img_url){
    const preview=document.getElementById('lookupPreview');
-   preview.src=data.set_img_url;preview.hidden=false;
+   preview.src=data.set_img_url;preview.dataset.imageUrl=data.set_img_url;preview.hidden=false;
   }
   document.getElementById('lookupMessage').textContent='Found: '+data.name+' · '+data.year+' · '+data.num_parts+' pieces. Please verify the theme and prices.';
   flash('Set details found');
