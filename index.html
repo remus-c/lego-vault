@@ -50,7 +50,7 @@ const STORE='remus-lego-vault-v3';
 const LEGACY='lego-vault-collection-v2';
 const NAVS=[['overview','Overview','◫'],['collection','My collection','▦'],['profile','My profile','◈'],['themes','Theme atlas','✧'],['helmets','Star Wars helmets','◉'],['wishlist','Wishlist','☆'],['insights','Statistics','▥']];
 const THEMES=['Star Wars','Batman','Botanicals','Technic & Cars','Gaming & Icons','Movies & TV','Art & Design'];
-const SET_THEME_OPTIONS=[...(window.VaultThemeCatalog?.list().map(x=>x.name)||[]),'Legacy / retired theme',...THEMES];
+const SET_THEME_OPTIONS=[...(window.VaultThemeCatalog?.list().map(x=>x.name)||[]),'Legacy / retired theme','Other / Uncategorised',...THEMES];
 const COLORS={'Star Wars':'#ffca50','Batman':'#9b8de2','Botanicals':'#7acba6','Technic & Cars':'#70a8e8','Gaming & Icons':'#eea26b','Movies & TV':'#e17a9f','Art & Design':'#7cd0d1',...(window.VaultThemeCatalog?.colors()||{})};
 const $=id=>document.getElementById(id), escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const dk=n=>n==null||Number.isNaN(+n)?'—':new Intl.NumberFormat('da-DK',{maximumFractionDigits:0}).format(n)+' kr';
