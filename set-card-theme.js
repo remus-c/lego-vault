@@ -65,7 +65,7 @@ function skin(set){
 }
 function attrs(set){
  const s=skin(set);
- return 'class="vault-skin" data-vault-world="'+escape(s.world)+'" data-vault-theme="'+escape(s.official)+'" style="--v-card-accent:'+s.accent+';--v-card-secondary:'+s.secondary+';--v-card-deep:'+s.deep+'"';
+ return 'data-vault-world="'+escape(s.world)+'" data-vault-theme="'+escape(s.official)+'" style="--v-card-accent:'+s.accent+';--v-card-secondary:'+s.secondary+';--v-card-deep:'+s.deep+'"';
 }
 function scene(set){
  const s=skin(set);
