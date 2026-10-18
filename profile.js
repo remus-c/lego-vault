@@ -50,7 +50,7 @@ function medal(a){
 function spotlight(s,index){
  const url=safeSetImage(s);
  return '<article class="profile-feature">'+
- '<div class="profile-feature-image"><span class="profile-feature-no">0'+(index+1)+'</span>'+
+ '<div class="profile-feature-image"><div class="profile-feature-fallback" aria-hidden="true"><span>VAULT • '+safe(s.theme)+'</span><strong>#'+safe(s.id)+'</strong></div><span class="profile-feature-no">0'+(index+1)+'</span>'+
  '<img loading="lazy" decoding="async" src="'+url+'" alt="'+safe(s.name)+'" onerror="this.style.display=\'none\'"></div>'+
  '<div class="profile-feature-content"><small>'+safe(s.theme)+'</small><strong>'+safe(s.name)+'</strong>'+
  '<div class="profile-feature-meta"><span>Set #'+safe(s.id)+'</span><span>'+numeric(s.pieces||0)+' pcs</span></div>'+
