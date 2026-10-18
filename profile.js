@@ -49,10 +49,15 @@ function medal(a){
 }
 function spotlight(s,index){
  const url=safeSetImage(s);
- return '<article class="profile-feature" data-vault-theme="'+safe(window.VaultThemeCatalog?.forSet(s)||s.theme)+'">'+
- '<div class="profile-feature-image"><div class="profile-feature-fallback" aria-hidden="true"><span>VAULT • '+safe(s.theme)+'</span><strong>#'+safe(s.id)+'</strong></div><span class="profile-feature-no">0'+(index+1)+'</span>'+
- '<img loading="lazy" decoding="async" src="'+url+'" alt="'+safe(s.name)+'" onerror="this.style.display=\'none\'"></div>'+
- '<div class="profile-feature-content"><small>'+safe(s.theme)+'</small><strong>'+safe(s.name)+'</strong>'+
+ const t=window.VaultCardTheme;
+ const official=t?.skin(s)?.official||s.theme;
+ return '<article class="profile-feature vault-feature vault-skin" '+(t?.attrs(s)||'')+'>'+
+ '<div class="profile-feature-image">'+(t?.scene(s)||'')+
+ '<div class="profile-feature-fallback" aria-hidden="true"><span>VAULT • '+safe(official)+'</span><strong>#'+safe(s.id)+'</strong></div>'+
+ '<span class="profile-feature-no">0'+(index+1)+'</span>'+
+ '<img loading="lazy" decoding="async" src="'+url+'" alt="'+safe(s.name)+'" onerror="this.style.display=\'none\'">'+
+ (t?.exhibitRibbon(s)||'')+'</div>'+
+ '<div class="profile-feature-content"><small>'+safe(official)+'</small><strong>'+safe(s.name)+'</strong>'+
  '<div class="profile-feature-meta"><span>Set #'+safe(s.id)+'</span><span>'+numeric(s.pieces||0)+' pcs</span></div>'+
  '<button type="button" data-action="details" data-id="'+safe(s.id)+'">View this set ↗</button></div></article>';
 }
