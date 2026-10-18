@@ -36,6 +36,14 @@ Files: `theme-tokens.css`, `motion.css`, `motion-engine.js`.
 - Respect `prefers-reduced-motion: reduce` and expose a visible pause/disable effects control.
 - Target: 60 fps when possible on modern iPhones; cap background decorative elements and use `transform`/`opacity` rather than scroll-triggered expensive layout.
 
+## Phase 1 status — implemented (18 October 2026)
+- [x] `motion.css`: animated brick and stud shapes, arcs, gears, pixels, petals, leaves, radiant orbs, motion-aware color atmosphere and 21 theme-world presets.
+- [x] `motion-engine.js`: one shared scene behind collection screens, palette from 47-theme LEGO.com registry; world changes with collection filtering, theme-card hover/focus, featured-set selection, and profile cover.
+- [x] User control **Atmosphere / FX**: Off, Gentle (default) and Cinematic; saved in `state.preferences.motion` via existing private Supabase sync, and a local fallback key.
+- [x] Mobile budget: maximum 7 ambient sprites for Gentle and 16 for Cinematic; desktop 13/29, plus CSS-generated aurora/rings. No external decorative image requests.
+- [x] OS `prefers-reduced-motion` overrides all animation choices and stops sprites; browser background tabs suspend effects; motion Off disables atmospheric and thematic animations.
+- [x] Validated JavaScript syntax and ran runtime tests for Star Wars, Botanicals, Technic, Off, Cinematic and reduced-motion preference. Full real-device performance and visual review remain to be completed.
+
 ## Phase 2 — theme-reactive collection surfaces
 Files: `theme-card.css`, `set-card-theme.js`.
 - Use official theme for catalog labels; combine optional franchise/mood to pick visual DNA. Do not depend on set title keywords for authoritative theme.
@@ -73,6 +81,6 @@ Files: `profile.css`, `profile.js`, optional `profile-showcase.js`.
 5. Public profile visibility must be explicit opt-in and separately reviewable, not inferred from sign-in.
 
 ## Status
-- **Built now:** verified official 47-theme registry, official/legacy category handling, visual world presets, themed Theme Atlas browse screen, cross-theme filtering, and compatibility with existing 3.0 collection.
-- **Not yet built:** system-wide motion controls, full theme-reactive styling for every set card, cinematic profile hero backgrounds and live achievements effects.
+- **Built now:** verified official 47-theme registry and Theme Atlas; animated LEGO Atmosphere Engine with background motifs for all theme presets; Off / Gentle / Cinematic settings and reduced-motion/mobile safeguards; backward compatible with existing collection and cloud state.
+- **Not yet built:** full theme-reactive styling for every set card (phase 2), deeper cinematic profile hero/showcase and live achievements effects (phase 3), and real-device performance QA (phase 4).
 - **No Supabase table changes required** for phase 0.
