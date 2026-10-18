@@ -4,7 +4,7 @@
 'use strict';
 const CONFIG_KEY='lego-vault-supabase-settings';
 const BANNER='☁';
-let sb=null,user=null,ready=false,busy=false,dirty=false,remoteStamp=null,saveTimer=null,libPromise=null;
+let sb=null,user=null,ready=false,busy=false,reconciling=false,dirty=false,remoteStamp=null,saveTimer=null,libPromise=null;
 const cfg=()=>{let custom={};try{custom=JSON.parse(localStorage.getItem(CONFIG_KEY)||'{}')}catch{}return {...(window.VAULT_CLOUD_CONFIG||{}),...custom}};
 const label=()=>document.getElementById('cloudButton');
 function paint(note){
@@ -76,8 +76,8 @@ async function uploadLocal(force){
  finally{busy=false;if(dirty&&ready)schedule()}
 }
 async function reconcile(){
- if(!sb||!user||busy)return;
- ready=false;paint('Checking cloud');
+ if(!sb||!user||busy||reconciling)return;
+ reconciling=true;ready=false;paint('Checking cloud');
  try{
  const remote=await readRemote();
  if(!remote){remoteStamp=null;await writeNew();return}
@@ -88,6 +88,7 @@ async function reconcile(){
  paint('Choose version');
  showChoice(remote.state);
  }catch(e){ready=false;paint('Cloud error');console.error('Cloud read',e);flash('Unable to read cloud collection. Check Supabase setup.')}
+ finally{reconciling=false}
 }
 function showChoice(remoteState){
  modal('<div class="modal-form"><div class="eyebrow">LEGO Vault 3.0 · Cloud sync</div><h2>Choose your collection</h2>'+
