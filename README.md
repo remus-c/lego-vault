@@ -4,6 +4,15 @@ Live website (GitHub Pages): https://remus-c.github.io/lego-vault/
 
 The website is a static HTML collection tracker with separate **Owned**, **Star Wars Helmets**, and **Wishlist** views.
 
+## LEGO Vault 3.2 theme foundation
+
+- **Theme Atlas**: browse/search all **47 LEGO.com Denmark currently-listed themes**, verified against https://www.lego.com/en-dk/themes on 18 October 2026. Every theme is displayed even when the collector owns zero sets.
+- **Theme creation**: the Add Set dialog now includes all 47 current official categories plus `Other / Uncategorised` and `Legacy / retired theme`, with compatibility for the existing broad historic categories.
+- **Thematic visuals**: Theme Atlas uses color-specific bricks, ambient motifs and subtle CSS animation; shared theme DNA is configured by a data registry with 21 stylistic presets.
+- **Verified set mappings**: official categories are separate from aesthetic/franchise overlays, e.g. Game Boy #72046 → Super Mario, Batcycle #42155 → Technic, Home Alone #21330 → Ideas, PAC-MAN #10323 → Icons, X-Mansion #76294 → Marvel, and PlayStation #72306 → Other. Stored ownership is not rewritten.
+- See [full 3.2 build plan](./docs/vault-3.2-implementation-plan.md) for the remaining animated profile, collection cards, achievements and quality gates.
+- Note: This catalog is a **snapshot of today's LEGO.com theme directory**, not a comprehensive historical list of every LEGO theme ever produced.
+
 ## Features
 - 35 confirmed owned sets and five wishlist items at the time of this release.
 - Images loaded from Brickset by LEGO set number; if an image fails, a theme illustration is shown instead.
