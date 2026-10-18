@@ -23,6 +23,15 @@ The website is a static HTML collection tracker with separate **Owned**, **Star 
 - JavaScript syntax and integration smoke tests have passed. Full visual and frame-rate QA on real iPhone/desktop devices is still pending.
 - See [implementation plan](./docs/vault-3.2-implementation-plan.md).
 
+## LEGO Vault 3.2 Theme Exhibit Cards (Phase 2 complete)
+
+- Set cards in **Collection**, **Overview**, **Wishlist** and **Star Wars Helmets** now inherit an official LEGO theme label and a themed exhibit scene, with a matching detail modal and three profile-showcase displays.
+- [set-card-theme.js](./set-card-theme.js) is a versionable map of **47 official themes → 21 visual worlds** with selected cross-theme storytelling overrides. **Official categories are not rewritten**: #42155 Batcycle stays Technic but looks Gotham; #72046 Game Boy stays Super Mario but looks retro pixel.
+- [set-card-theme.css](./set-card-theme.css) provides modular atmospheric lighting, brick/stud motifs, decorative rings, themed badges, image fallbacks and keyboard/touch focus states.
+- The existing motion setting **Off / Gentle / Cinematic** and device reduced-motion preference apply to these effects. Only actively interacted card visuals animate, reducing battery/scroll cost.
+- Product RRP remains historical reference, not a resale estimate; card thumbnails still use original Brickset or saved Rebrickable images.
+- Code syntax, all-theme mapping, representative product-card and detail-form HTML smoke tests passed. Real iPhone/desktop visual validation remains outstanding.
+
 ## Features
 - 35 confirmed owned sets and five wishlist items at the time of this release.
 - Images loaded from Brickset by LEGO set number; if an image fails, a theme illustration is shown instead.
