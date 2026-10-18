@@ -133,7 +133,13 @@ function setupButton(){
  const bar=document.querySelector('.top-actions');if(!bar)return;
  const b=document.createElement('button');b.id='motionButton';b.type='button';b.className='btn';
  b.innerHTML='<span class="motion-glyph" aria-hidden="true">✧</span><span class="motion-label">Atmosphere</span><span class="motion-current"></span>';
- b.addEventListener('click',openSettings);bar.prepend(b);
+ b.addEventListener('click',openSettings);bar.prepend(b);positionButton();
+}
+function positionButton(){
+ const button=document.getElementById('motionButton'),bar=document.querySelector('.top-actions');
+ if(!button||!bar)return;
+ if(window.innerWidth<=735){if(button.parentElement!==document.body)document.body.append(button)}
+ else if(button.parentElement!==bar)bar.prepend(button);
 }
 function locate(x){
  const el=x?.closest?.('.theme-tile[data-theme-name],.set-card[data-vault-theme],.profile-feature[data-vault-theme]');
@@ -165,7 +171,7 @@ document.addEventListener('pointermove',e=>{
  frame=requestAnimationFrame(()=>{frame=0;root.style.setProperty('--vault-x',x.toFixed(1)+'px');root.style.setProperty('--vault-y',y.toFixed(1)+'px')});
 },{passive:true});
 document.addEventListener('visibilitychange',()=>{paused=document.hidden;root.classList.toggle('vault-paused',paused);update(true)});
-window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>update(),180)},{passive:true});
+window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{positionButton();update()},180)},{passive:true});
 media?.addEventListener?.('change',()=>update(true));
 window.VaultAtmosphere={update,setSpotlight,clearSpotlight,clearHover,openSettings,setMode,getMode:()=>mode,getWorld:()=>root.dataset.vaultWorld};
 setupButton();update(true);
