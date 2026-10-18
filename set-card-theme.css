@@ -68,7 +68,7 @@
 .vault-exhibit-aurora{
  position:absolute;width:93%;height:65%;left:8%;top:-24%;
  background:radial-gradient(ellipse,color-mix(in srgb,var(--v-card-accent) 37%,transparent),transparent 68%);
- filter:blur(18px);opacity:.75;animation:vault-exhibit-fog 11s ease-in-out infinite alternate;
+ opacity:.75;animation:vault-exhibit-fog 11s ease-in-out infinite alternate;
 }
 .vault-exhibit-halo{
  position:absolute;width:69%;height:82%;top:12%;right:13%;border-radius:50%;
@@ -120,7 +120,7 @@
 [data-vault-world="galaxy"] .vault-exhibit-dust{opacity:.72}
 [data-vault-world="galaxy"] .vault-exhibit-halo{border-style:dashed;animation:vault-exhibit-orbit 31s linear infinite}
 [data-vault-world="galaxy"] .vault-exhibit-track{transform:perspective(220px) rotateX(56deg);opacity:.27}
-[data-vault-world="noir"] .vault-exhibit-aurora{opacity:.55;filter:blur(24px)}
+[data-vault-world="noir"] .vault-exhibit-aurora{opacity:.55}
 [data-vault-world="noir"] .vault-exhibit-track{background:repeating-linear-gradient(90deg,#19283f 0 12px,#29354b 12px 15px,transparent 15px 37px);opacity:.43;transform:none;height:47px;bottom:0}
 [data-vault-world="noir"] .vault-exhibit-dust{background-image:repeating-linear-gradient(110deg,transparent 0 12px,var(--v-card-accent) 13px 14px,transparent 15px 30px);opacity:.19}
 [data-vault-world="garden"] .vault-exhibit-motif{font-family:Georgia,serif;font-size:165px;opacity:.13}
@@ -192,4 +192,17 @@
  .vault-set-card .card-bottom{gap:5px}
  .vault-set-card .price-box b{font-size:12px}
  .vault-set-card .card-link{font-size:9px;padding:6px 7px}
+}
+
+/* Performance budget: only the currently interacted card animates.
+   Resting card visuals remain colorful but fully static; the shared page
+   atmosphere continues to provide background movement. */
+.collection-grid .vault-set-card .vault-exhibit-art *,
+.profile-page .vault-feature .vault-exhibit-art *{animation-play-state:paused}
+.collection-grid .vault-set-card:is(:hover,:focus-within,:active) .vault-exhibit-art *,
+.profile-page .vault-feature:is(:hover,:focus-within,:active) .vault-exhibit-art *{animation-play-state:running}
+@media(hover:none){.collection-grid .vault-set-card .vault-exhibit-art *{animation-play-state:paused}}
+@media(prefers-reduced-motion:reduce){
+ .collection-grid .vault-set-card .vault-exhibit-art *,
+ .profile-page .vault-feature .vault-exhibit-art *{animation:none!important}
 }
