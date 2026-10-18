@@ -56,6 +56,15 @@ Files: `theme-card.css`, `set-card-theme.js`.
 - Other 40+ themes inherit tuned palettes and semantic presets (education, fantasy, hero, pixel, ocean, city, etc.), each identifiable by name and accent; individual overrides can be added iteratively.
 - Apply DNA in gallery cards, details modals, featured displays and thematic filters without duplicating UI components.
 
+## Phase 2 status — implemented (18 October 2026)
+- [x] `set-card-theme.js`: 47 official LEGO themes resolve to 21 shared visual-world definitions plus curated scene overrides. Original official labels remain independent from aesthetic style (e.g. Batcycle #42155 → Technic / Gotham; Game Boy #72046 → Super Mario / Retro Pixel; Bugatti #42083 → Technic / Hypercar).
+- [x] `set-card-theme.css`: colorful rim lighting, layered decorative LEGO brick/stud pieces, world-specific motifs, softly-lit product stages and gallery labels. Responsive from wide desktop down to iPhone widths.
+- [x] Theme-native cards used in collection, wishlist, helmets, homepage highlights and profile showcase.
+- [x] Set detail modal uses the same theme DNA, honors image fallback, and preserves form functionality, pricing terminology and per-set notes.
+- [x] Existing Atmosphere Off/Gentle/Cinematic preference and OS reduced-motion setting apply to card motion and hover animations.
+- [x] Smoke-tested all 47 themes with valid visual metadata, verified representative crossovers (7 sets), renderer string output, form modal structure, JS syntax and unchanged 35-owned/5-wishlist/14-helmet seed collection.
+- [ ] On-device browser visual and frame-rate QA; no full browser screenshot or real-world touch interaction was available in this implementation session.
+
 ## Phase 3 — Collector Profile 3.2
 Files: `profile.css`, `profile.js`, optional `profile-showcase.js`.
 - Hero: layered LEGO brick scene, signature theme aura derived from top themes, avatar/podium, optional accent selector.
@@ -82,5 +91,5 @@ Files: `profile.css`, `profile.js`, optional `profile-showcase.js`.
 
 ## Status
 - **Built now:** verified official 47-theme registry and Theme Atlas; animated LEGO Atmosphere Engine with background motifs for all theme presets; Off / Gentle / Cinematic settings and reduced-motion/mobile safeguards; backward compatible with existing collection and cloud state.
-- **Not yet built:** full theme-reactive styling for every set card (phase 2), deeper cinematic profile hero/showcase and live achievements effects (phase 3), and real-device performance QA (phase 4).
+- **Not yet built:** deeper cinematic profile hero, achievement animation and journey timeline (phase 3), plus cross-device visual/performance/accessibility QA (phase 4).
 - **No Supabase table changes required** for phase 0.
