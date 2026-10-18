@@ -146,7 +146,7 @@ function locate(x){
  return el?{el,name:el.dataset.themeName||el.dataset.vaultTheme}:null;
 }
 function setSpotlight(x){spotlightTheme=x||'';update()}
-function clearSpotlight(){spotlightTheme='';update()}
+function clearSpotlight(){spotlightTheme='';hoverTheme='';update()}
 function clearHover(){hoverTheme=''}
 document.addEventListener('click',e=>{
  const b=e.target.closest('[data-motion-choice]');
