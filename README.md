@@ -13,6 +13,16 @@ The website is a static HTML collection tracker with separate **Owned**, **Star 
 - See [full 3.2 build plan](./docs/vault-3.2-implementation-plan.md) for the remaining animated profile, collection cards, achievements and quality gates.
 - Note: This catalog is a **snapshot of today's LEGO.com theme directory**, not a comprehensive historical list of every LEGO theme ever produced.
 
+## LEGO Vault 3.2 Atmosphere Engine (Phase 1 complete)
+
+- Animated LEGO-inspired decorative background on all Vault screens: glowing studs, floating plastic bricks, star dust, garden petals/leaves, mechanical gears, arcade pixels and ambient rings.
+- **Theme-aware:** The shared engine reads the verified 47-theme LEGO Denmark registry (21 reusable atmosphere worlds), follows active collection filters, theme atlas tiles, showcase cards and set details, and matches the selected profile cover.
+- **Atmosphere button / FX (iPhone):** choose **Off**, **Gentle** (default), or **Cinematic**. Saves under `state.preferences.motion`, and follows existing optional signed-in Supabase cloud sync. A local backup also persists the setting.
+- Accessibility and performance: `prefers-reduced-motion` always disables active effects; background tabs pause. Decorative sprite budgets: Gentle 7 on phones/13 desktop; Cinematic 16 on phones/29 desktop.
+- Implementation isolated in [motion.css](./motion.css) and [motion-engine.js](./motion-engine.js); no external image resources are required for effects. These are independently created geometric LEGO-inspired motifs, not copied licensed imagery.
+- JavaScript syntax and integration smoke tests have passed. Full visual and frame-rate QA on real iPhone/desktop devices is still pending.
+- See [implementation plan](./docs/vault-3.2-implementation-plan.md).
+
 ## Features
 - 35 confirmed owned sets and five wishlist items at the time of this release.
 - Images loaded from Brickset by LEGO set number; if an image fails, a theme illustration is shown instead.
