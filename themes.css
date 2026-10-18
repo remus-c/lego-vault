@@ -1,0 +1,54 @@
+/* LEGO Vault 3.2: Official theme atlas — colorful brick-native surfaces */
+.theme-hub{max-width:1510px;margin:auto;padding-bottom:45px}
+.theme-hero{min-height:260px;position:relative;isolation:isolate;overflow:hidden;border-radius:23px;border:1px solid #46557f;padding:40px 42px;background:radial-gradient(ellipse at 72% 55%,#7a4bb347,transparent 48%),radial-gradient(ellipse at 15% 90%,#278ba954,transparent 44%),linear-gradient(112deg,#171b3c,#262d4e 55%,#352745);display:flex;gap:24px;align-items:flex-end;justify-content:space-between;box-shadow:0 18px 48px #0003}
+.theme-hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.23;background-image:radial-gradient(circle,#bad5ff 11%,#90b7e3 16%,#00000035 28%,transparent 31%);background-size:57px 57px;transform:rotate(-12deg) scale(1.2);mask-image:linear-gradient(110deg,transparent 15%,black)}
+.theme-hero-copy{max-width:640px;position:relative;z-index:2}
+.theme-hero h1{font-size:clamp(35px,5vw,66px);line-height:.98;margin:12px 0 16px;color:#fff;font-weight:900;letter-spacing:-2.5px}
+.theme-hero h1 span{background:linear-gradient(95deg,#ffe1ad,#caa5ff,#89eafc);color:transparent;background-clip:text;-webkit-background-clip:text}
+.theme-hero p{font-size:13px;max-width:520px;color:#c1cde4;line-height:1.75;margin:0}
+.theme-counter{flex:none;padding:16px 18px;background:#101b31a6;border:1px solid #8aa5d85b;border-radius:18px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 28px #08081d66}
+.theme-counter strong{font-size:55px;letter-spacing:-3px;color:#ffe7ac;line-height:1}
+.theme-counter span{font-size:10px;font-weight:900;letter-spacing:1.8px;line-height:1.7;color:#e3e9f8}
+.theme-hero-orbit{height:260px;width:260px;position:absolute;border:1px solid #c2cbff35;border-radius:50%;right:7%;top:-65px;box-shadow:0 0 0 32px #d4b3ff07,0 0 0 68px #b1c0ff06;animation:themeOrbit 26s linear infinite}
+@keyframes themeOrbit{to{transform:rotate(360deg)}}
+.theme-hero-brick{position:absolute;z-index:-1;background:linear-gradient(135deg,#f9ba75c7,#d965a1a6);box-shadow:0 15px 22px #17142780,inset 2px 2px 2px #ffffff54;border-radius:6px;transform:rotate(-25deg)}
+.theme-hero-brick:before{content:"";position:absolute;left:15%;right:15%;height:22%;top:-15%;background:radial-gradient(circle,#ffffff40 5%,#dba5b5 40%,#c7648b 100%);border-radius:50%;box-shadow:inset 0 3px 2px #ffffff55}
+.theme-hero-brick.b1{height:35px;width:92px;right:29%;top:72px;animation:themeFloat 8s ease-in-out infinite alternate}
+.theme-hero-brick.b2{height:27px;width:58px;right:13%;bottom:35px;animation:themeFloat 11s ease-in-out infinite alternate-reverse}
+@keyframes themeFloat{to{transform:translateY(-16px) rotate(-17deg)}}
+.theme-control-bar{display:flex;gap:15px;align-items:center;justify-content:space-between;margin:27px 0 12px}
+.theme-selector{display:flex;background:#181f31;padding:5px;border:1px solid #354156;border-radius:12px;gap:4px}
+.theme-selector button{font-size:12px;background:none;color:#9caec8;padding:10px 14px;border-radius:8px;font-weight:800;border:0}
+.theme-selector button.active{background:linear-gradient(110deg,#675391,#394d82);color:#fff;box-shadow:0 4px 14px #1016326f}
+.theme-searchbox{display:flex;gap:10px;align-items:center;padding:0 14px;border:1px solid #404c66;background:#182234;border-radius:12px;min-width:185px}
+.theme-searchbox span{font-size:24px;color:#c2b3ea}
+.theme-searchbox input{background:transparent;border:0;outline:0;color:#eef4ff;height:43px;width:185px;font-size:12px}
+.theme-searchbox input:focus-visible{outline:0}
+.theme-searchbox:focus-within{outline:2px solid #bca2ff}
+.theme-verified-note{color:#90a5bf;font-size:11px;line-height:1.5;margin:14px 0 18px}
+.theme-verified-note span{color:#92e9c4;margin-right:5px}
+.theme-verified-note a{color:#b2cdfd;text-decoration:underline;text-underline-offset:3px}
+.theme-atlas-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.theme-tile{min-width:0;min-height:228px;display:flex;flex-direction:column;justify-content:space-between;position:relative;isolation:isolate;overflow:hidden;padding:17px 17px 15px;background:radial-gradient(ellipse at 73% 65%,color-mix(in srgb,var(--world-accent) 25%,transparent),transparent 72%),linear-gradient(127deg,var(--world-dark),#1b233b);border:1px solid color-mix(in srgb,var(--world-accent) 45%,#31415e);border-radius:17px;box-shadow:0 10px 30px #070b1835;transition:transform .18s,border-color .18s,box-shadow .18s}
+.theme-tile:hover{transform:translateY(-4px);border-color:var(--world-accent);box-shadow:0 16px 38px #05071880,0 0 30px color-mix(in srgb,var(--world-accent) 15%,transparent)}
+.theme-tile:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.22;pointer-events:none;background:linear-gradient(135deg,#ffffff24,transparent 38%,#00000028 75%)}
+.theme-ambient-symbol{font-size:135px;line-height:1;position:absolute;top:47px;right:-8px;opacity:.13;font-family:serif;color:var(--world-accent);pointer-events:none;transform:rotate(-14deg);animation:themeMotif 11s ease-in-out infinite alternate}
+.theme-ambient-studs{position:absolute;inset:-20px;z-index:-1;opacity:.08;background-image:radial-gradient(circle,var(--world-accent) 14%,transparent 20%);background-size:37px 37px;pointer-events:none;mask-image:linear-gradient(90deg,transparent 12%,black)}
+@keyframes themeMotif{to{transform:translateY(-12px) rotate(-5deg)}}
+.theme-tile-head,.theme-tile-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.theme-tile-ribbon,.theme-tile-count,.theme-tile-foot>span{font-size:9px;font-weight:850;letter-spacing:1.3px;color:#c0cfe7}
+.theme-tile-count{font-size:9px;border:1px solid #ffffff25;background:#070c1b62;border-radius:100px;padding:5px 7px;white-space:nowrap}
+.theme-tile-body{margin:23px 0 18px}
+.theme-tile-icon{height:36px;width:36px;border-radius:10px;border:1px solid color-mix(in srgb,var(--world-accent) 62%,transparent);color:var(--world-accent);display:grid;place-items:center;background:#10142479;font-size:21px;margin-bottom:10px}
+.theme-tile h3{font-size:21px;font-weight:850;letter-spacing:-.6px;margin:0;color:#f3f8ff;line-height:1.15;overflow-wrap:break-word}
+.theme-tile-body p{font-size:10px;font-weight:650;letter-spacing:.6px;color:#b5c0d2;margin:9px 0 0;text-transform:uppercase}
+.theme-tile-foot{border-top:1px solid #ffffff24;padding-top:12px}
+.theme-tile-foot button{border:0;padding:0 0 3px;color:var(--world-accent);background:none;border-bottom:1px solid currentColor;font-size:11px;font-weight:800;white-space:nowrap}
+.theme-legacy-foot{display:flex;gap:22px;justify-content:space-between;align-items:center;background:#1b2231;border:1px solid #394355;border-radius:15px;margin-top:19px;padding:18px 22px}
+.theme-legacy-foot strong{font-size:15px;color:#f2e8d0}
+.theme-legacy-foot p{font-size:11px;color:#a5b4c9;margin:5px 0 0;max-width:610px}
+.theme-no-results{padding:40px;text-align:center;color:#b5c4d7;background:#202638;border-radius:14px}
+@media(max-width:1240px){.theme-atlas-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.theme-hero{padding:35px}}
+@media(max-width:860px){.theme-atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.theme-tile{min-height:207px}.theme-hero h1{font-size:45px}}
+@media(max-width:590px){.theme-hero{padding:23px;min-height:245px;align-items:flex-end}.theme-hero h1{font-size:37px;letter-spacing:-1.6px}.theme-hero p{font-size:11px}.theme-counter{padding:10px;gap:5px;flex-direction:column}.theme-counter strong{font-size:36px}.theme-counter span{font-size:8px}.theme-control-bar{flex-direction:column;align-items:stretch}.theme-searchbox{width:100%}.theme-searchbox input{flex:1;width:100%}.theme-selector{justify-content:space-around}.theme-selector button{font-size:11px;padding:9px 8px}.theme-atlas-grid{gap:9px}.theme-tile{min-height:203px;padding:11px}.theme-tile h3{font-size:16px}.theme-tile-body{margin:20px 0 16px}.theme-tile-foot>span{font-size:7px;letter-spacing:.5px}.theme-tile-foot button{font-size:9px}.theme-tile-count{font-size:8px}.theme-legacy-foot{flex-direction:column;align-items:flex-start}.theme-ambient-symbol{font-size:95px}}
+@media(prefers-reduced-motion:reduce){.theme-hero-orbit,.theme-hero-brick,.theme-ambient-symbol{animation:none}.theme-tile{transition:none}}
