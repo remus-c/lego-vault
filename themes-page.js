@@ -25,7 +25,7 @@ function card(theme,num){
  const dna=t().world(theme.name),n=num||0,m=motif(theme.world);
  const cardClass='theme-tile theme-world-'+safe(theme.world);
  const action=n?'explore':'add';
- return '<article class="'+cardClass+'" style="--world-accent:'+safe(theme.accent)+';--world-dark:'+safe(dna?.[0]||'#1e2539')+'">'+
+ return '<article class="'+cardClass+'" data-theme-name="'+safe(theme.name)+'" style="--world-accent:'+safe(theme.accent)+';--world-dark:'+safe(dna?.[0]||'#1e2539')+'">'+
  '<span class="theme-ambient-symbol" aria-hidden="true">'+m+'</span><span class="theme-ambient-studs" aria-hidden="true"></span>'+
  '<div class="theme-tile-head"><span class="theme-tile-ribbon">THEME '+String(theme.order+1).padStart(2,'0')+'</span><span class="theme-tile-count">'+n+' OWNED</span></div>'+
  '<div class="theme-tile-body"><span class="theme-tile-icon" aria-hidden="true">'+m+'</span><h3>'+safe(theme.name)+'</h3>'+
