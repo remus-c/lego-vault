@@ -89,3 +89,6 @@
  #motionButton .motion-glyph{font-size:17px}
  #motionButton:after{content:"FX";color:#e1e9fc;font-size:11px;font-weight:850;letter-spacing:1px}
 }
+
+/* Suspend all decorative motion while the tab is not visible. */
+.vault-paused .vault-atmosphere *, .vault-paused .vault-atmosphere{animation-play-state:paused!important;transition:none!important}
