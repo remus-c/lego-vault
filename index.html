@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#0b0d14">
-<title>LEGO Vault 2.0 — Personal Collection</title>
+<title>LEGO Vault 3.0 — Personal Collection</title>
 <style>
 
 :root{--bg:#0b0d14;--side:#10131d;--card:#161a25;--line:#2b303d;--muted:#98a0b0;--text:#f8f8fa;--yellow:#ffcf44;--yellow2:#e8ab14;--blue:#8aaeff;--green:#8fdcba;--red:#f49c98;--padding:27px;--radius:18px;color-scheme:dark}
@@ -11,14 +11,16 @@
 @media(max-width:1000px){.sidebar{width:78px;padding:23px 10px}.brand{padding:0 8px 31px}.brand-text,.navlabel,.nav button span:not(.count),.nav .count,.sidebar-foot{display:none}.nav button{justify-content:center;padding:15px 7px}.nav button svg{width:21px;height:21px}.main{width:calc(100% - 78px)}.topbar{padding:17px 23px}.content{padding:27px 23px 50px}.stat{padding:16px}.stat-value{font-size:24px}.hero-copy{width:68%}}
 @media(max-width:735px){.sidebar{display:none}.main{width:100%}.topbar{padding:12px 15px;position:sticky}.hamburger{display:inline-flex;font-weight:800;font-size:13px;gap:7px;color:var(--yellow);align-items:center}.global-search{min-width:0;width:130px}.global-search input{font-size:11px}.top-actions .hide-sm{display:none}.content{padding:17px 15px 80px}.hero{padding:25px;min-height:260px}.hero-copy{width:85%}.hero h1{font-size:43px}.hero p{font-size:11px}.hero-art{opacity:.45!important;width:58%!important;right:-65px!important}.gridstats{grid-template-columns:repeat(2,1fr);gap:9px}.stat{padding:14px}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.set-image{height:170px}.set-card h3{font-size:14px;min-height:40px}.card-content{padding:12px}.modal-hero{grid-template-columns:1fr}.modal-photo{height:230px;min-height:0}.modal-photo img{width:80%}.discountbar{grid-template-columns:1fr 1fr}.discountbar>div:first-child{grid-column:span 2}.insights-grid{grid-template-columns:1fr}.hero-art:before{display:none}.helmet-intro{gap:15px;padding:18px}.progress-circle{width:93px;height:93px}.progress-core{width:76px;height:76px}.progress-core b{font-size:23px}.progress-core small{font-size:8px}.helmet-intro h2{font-size:19px}.theme-chart{gap:11px}.donut{width:145px;height:145px}.donut:after{inset:28px}.mobile-menu{display:flex!important;gap:5px;flex-wrap:wrap;padding:10px 15px;border-bottom:1px solid #252a36;background:#111522}.mobile-menu button{background:#1d2331;color:#aab3c2;border:1px solid #353d4b;border-radius:8px;padding:8px;font-size:10px;font-weight:800}.mobile-menu button.active{background:#4a3a22;color:var(--yellow)}}
 @media(max-width:390px){.hero h1{font-size:37px}.set-image{height:135px}.card-content{padding:9px}.set-card h3{font-size:12px}.details-meta{font-size:10px}.price-box b{font-size:13px}.card-link{font-size:10px;padding:7px}.formgrid{grid-template-columns:1fr}.hero .btn{font-size:11px}}
+#cloudButton{white-space:nowrap;font-size:12px}
+@media(max-width:735px){#cloudButton{font-size:0;padding:9px}#cloudButton::before{content:"☁";font-size:20px}}
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
- <div class="brand"><div class="mark"><svg viewBox="0 0 30 30" fill="none" stroke="#222016" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="12" width="22" height="13" rx="2"/><rect x="8" y="6" width="6" height="6" rx="1"/><rect x="17" y="6" width="6" height="6" rx="1"/><path d="M4 19h22"/></svg></div><div class="brand-text">LEGO <span style="color:var(--yellow)">VAULT</span><small>COLLECTION / 2.0</small></div></div>
+ <div class="brand"><div class="mark"><svg viewBox="0 0 30 30" fill="none" stroke="#222016" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="12" width="22" height="13" rx="2"/><rect x="8" y="6" width="6" height="6" rx="1"/><rect x="17" y="6" width="6" height="6" rx="1"/><path d="M4 19h22"/></svg></div><div class="brand-text">LEGO <span style="color:var(--yellow)">VAULT</span><small>COLLECTION / 3.0</small></div></div>
  <div class="navlabel">Explore</div><nav id="nav" class="nav"></nav>
- <div class="sidebar-foot"><strong>THE PERSONAL ARCHIVE</strong>First recorded: 17 Oct 2026<br>Saved locally in this browser.<div style="margin-top:15px;color:var(--yellow)">● YOUR COLLECTION</div></div>
+ <div class="sidebar-foot"><strong>THE PERSONAL ARCHIVE</strong>First recorded: 17 Oct 2026<br>Cloud sync available with optional sign-in; local backups stay available.<div style="margin-top:15px;color:var(--yellow)">● YOUR COLLECTION</div></div>
 </aside>
 <main class="main">
  <header class="topbar"><span class="crumb"><span class="hamburger">▦ VAULT</span> <span id="crumb">/ <b>Overview</b></span></span><div class="top-actions"><label class="global-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="searchInput" placeholder="Search set or number…" aria-label="Search LEGO sets"></label><button class="btn hide-sm" data-action="backup">↓ Backup</button><button class="btn hide-sm" data-action="restore">↑ Restore</button><button class="btn primary" data-action="add">＋ Add set</button></div></header>
@@ -29,7 +31,7 @@
  <section id="page-helmets" class="page"></section>
  <section id="page-wishlist" class="page"></section>
  <section id="page-insights" class="page"></section>
- <div class="footnote">Reference prices are manually recorded Danish retail reference amounts from the previous Vault, not live market prices, resale estimates, or necessarily amounts you paid. Photos load from Brickset when connected to the internet. Collection edits are kept on this device until you export a backup.</div>
+ <div class="footnote">Reference prices are manually recorded Danish retail reference amounts from the previous Vault, not live market prices, resale estimates, or necessarily amounts you paid. Photos load from Brickset when connected to the internet. Changes save locally; optional signed-in cloud sync keeps the collection across devices. Cloud access requires a dedicated Supabase database.</div>
  </div>
 </main>
 </div>
@@ -124,4 +126,6 @@ $('importFile').addEventListener('change',e=>importBackup(e.target.files[0]));
 document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==='i'){e.preventDefault();$('importFile').click()}});
 render();
 </script>
+<script src="./metadata.js"></script>
+<script src="./cloud.js"></script>
 </body></html>
