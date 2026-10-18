@@ -1,0 +1,91 @@
+/* LEGO Vault 3.2 / Atmosphere Engine — CSS-only GPU-friendly decorative layers.
+ * Theme source: VaultThemeCatalog. All artwork here is original geometry.
+ * Respect user/system reduced motion. No external textures or image downloads. */
+:root{--vault-a:#88b9ff;--vault-b:#bb94fa;--vault-deep:#111b31;--vault-mid:#2d4570;--vault-x:0px;--vault-y:0px}
+.main{position:relative;isolation:isolate}
+.main>.content{position:relative;z-index:1}
+.main>.mobile-menu{position:relative;z-index:5}
+.vault-atmosphere{position:fixed;inset:0 0 0 244px;pointer-events:none;z-index:0;overflow:hidden;contain:paint;background:radial-gradient(ellipse 77% 52% at 79% 11%,color-mix(in srgb,var(--vault-a) 18%,transparent),transparent 76%),radial-gradient(ellipse 56% 44% at 2% 72%,color-mix(in srgb,var(--vault-b) 11%,transparent),transparent 88%),linear-gradient(130deg,#0c101d 10%,#10172a 61%,#100f1d 100%);transition:background 800ms ease}
+.vault-atmosphere *{pointer-events:none}
+.vault-atmosphere .vault-aurora{position:absolute;width:clamp(340px,48vw,780px);height:clamp(340px,50vw,800px);border-radius:50%;will-change:transform;opacity:.28;filter:blur(55px);background:radial-gradient(circle,color-mix(in srgb,var(--vault-a) 36%,transparent),transparent 70%);transform:translate3d(var(--vault-x),var(--vault-y),0)}
+.vault-aurora.a{right:-23%;top:-24%;animation:vault-aurora 19s ease-in-out infinite alternate}
+.vault-aurora.b{left:-27%;bottom:-44%;width:520px;height:520px;opacity:.20;animation:vault-aurora 28s ease-in-out infinite alternate-reverse;background:radial-gradient(circle,color-mix(in srgb,var(--vault-b) 43%,transparent),transparent 70%)}
+.vault-grid{position:absolute;inset:0;opacity:.32;mask-image:linear-gradient(90deg,transparent 4%,#0008 45%,#0004 100%);background-image:linear-gradient(color-mix(in srgb,var(--vault-a) 11%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--vault-a) 11%,transparent) 1px,transparent 1px);background-size:68px 68px;transform:perspective(700px) rotateX(22deg) scale(1.32);transform-origin:bottom center}
+.vault-ring{position:absolute;border:1px solid color-mix(in srgb,var(--vault-a) 23%,transparent);border-radius:50%;aspect-ratio:1;width:min(54vw,740px);right:-15%;top:7%;opacity:.48;box-shadow:0 0 0 24px color-mix(in srgb,var(--vault-b) 4%,transparent),0 0 0 66px color-mix(in srgb,var(--vault-a) 3%,transparent);animation:vault-turn 35s linear infinite}
+.vault-ring:before,.vault-ring:after{content:"";position:absolute;border:2px solid color-mix(in srgb,var(--vault-a) 46%,transparent);width:10px;height:10px;border-radius:50%;top:11%;left:14%}
+.vault-ring:after{top:auto;left:auto;right:7%;bottom:18%;width:5px;height:5px}
+.vault-layer{position:absolute;inset:0;transform:translate3d(calc(var(--vault-x) * .65),calc(var(--vault-y) * .65),0);will-change:transform}
+.vault-layer-far{opacity:.52;transform:translate3d(calc(var(--vault-x) * .2),calc(var(--vault-y) * .2),0)}
+.vault-sprite{position:absolute;left:var(--px);top:var(--py);width:var(--sz);height:var(--sz);opacity:var(--op);transform:rotate(var(--rot));color:var(--vault-a);animation:vault-float var(--dur) ease-in-out var(--delay) infinite alternate;will-change:transform}
+.vault-sprite--brick{height:calc(var(--sz) * .63);border-radius:8px;border:1px solid #ffffff37;background:linear-gradient(133deg,color-mix(in srgb,var(--vault-a) 68%,#536bad),color-mix(in srgb,var(--vault-b) 40%,#192749));box-shadow:inset 2px 3px 6px #fff3,inset -4px -6px 10px #07102169,0 12px 22px #0006;transform:rotate(var(--rot)) skewY(-7deg)}
+.vault-sprite--brick:before{content:"";position:absolute;height:33%;width:32%;top:-27%;left:12%;border-radius:50%;background:radial-gradient(ellipse at 32% 28%,#ffffff95,color-mix(in srgb,var(--vault-a) 85%,#465b83) 55%,#151b2e);box-shadow:calc(var(--sz) * .44) 0 0 -1px color-mix(in srgb,var(--vault-a) 60%,#304b79),calc(var(--sz) * .44) 0 0 0px #ffffff20}
+.vault-sprite--brick:after{content:"";position:absolute;inset:7px;border-radius:3px;border:1px solid #ffffff16}
+.vault-sprite--stud{border:3px solid color-mix(in srgb,var(--vault-a) 70%,transparent);border-radius:50%;box-shadow:inset -4px -4px 4px #0004,inset 3px 3px 5px #fff2,0 0 15px color-mix(in srgb,var(--vault-a) 16%,transparent);transform:rotateX(22deg)}
+.vault-sprite--stud:before{content:"";position:absolute;inset:20%;border-radius:50%;border:1px solid currentColor;opacity:.58}
+.vault-sprite--spark{background:color-mix(in srgb,var(--vault-a) 75%,#fff);clip-path:polygon(50% 0%,58% 41%,100% 50%,58% 58%,50% 100%,42% 58%,0% 50%,42% 41%);filter:drop-shadow(0 0 12px currentColor)}
+.vault-sprite--petal{border-radius:100% 0 100% 8%;background:linear-gradient(140deg,#fff4ed,color-mix(in srgb,var(--vault-a) 85%,#ef99b4));box-shadow:0 0 12px color-mix(in srgb,var(--vault-a) 22%,transparent)}
+.vault-sprite--pixel{border-radius:2px;background:color-mix(in srgb,var(--vault-a) 82%,#d4edfc);box-shadow:calc(var(--sz) * 1.2) calc(var(--sz) * .45) 0 -1px color-mix(in srgb,var(--vault-b) 77%,transparent)}
+.vault-sprite--gear{border-radius:50%;background:repeating-conic-gradient(from 0deg,color-mix(in srgb,var(--vault-a) 70%,#a3cafa) 0deg 20deg,transparent 22deg 36deg);mask:radial-gradient(circle,transparent 0 22%,black 25% 58%,transparent 61%);animation:vault-turn var(--dur) linear infinite}
+.vault-sprite--ray{width:calc(var(--sz) * .14);height:calc(var(--sz) * 2.8);background:linear-gradient(transparent,color-mix(in srgb,var(--vault-a) 65%,#d4e0fe),transparent);filter:drop-shadow(0 0 12px currentColor);border-radius:100px;opacity:calc(var(--op) * .65)}
+.vault-sprite--leaf{border-radius:3% 100% 4% 100%;background:linear-gradient(125deg,color-mix(in srgb,var(--vault-a) 90%,#aaffb8),color-mix(in srgb,var(--vault-b) 45%,#1c544d));transform:rotate(var(--rot))}
+.vault-sprite--bokeh{border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--vault-a) 84%,#fff),transparent 73%);filter:blur(2px)}
+.vault-sprite--arc{border:2px solid color-mix(in srgb,var(--vault-a) 72%,#fff);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(var(--rot))}
+@keyframes vault-aurora{to{transform:translate3d(7%,-4%,0) scale(1.14)}}
+@keyframes vault-turn{to{transform:rotate(360deg)}}
+@keyframes vault-float{0%{transform:translate3d(0,0,0) rotate(var(--rot))}100%{transform:translate3d(var(--dx),var(--dy),0) rotate(calc(var(--rot) + 22deg))}}
+/* Surface integration: themed top-line, hero glow and LEGO stud accents. */
+.main>.content .hero{box-shadow:0 17px 62px color-mix(in srgb,var(--vault-a) 9%,#0006),inset 0 1px 0 #ffffff1a;border-color:color-mix(in srgb,var(--vault-a) 35%,#3f4252)}
+.main>.content .hero:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle at center,color-mix(in srgb,var(--vault-a) 70%,transparent) 0 26%,transparent 32%);background-size:37px 37px;mask-image:linear-gradient(115deg,transparent 28%,#0005 80%,transparent);opacity:.28;z-index:1}
+.main>.content .profile-cover{border-color:color-mix(in srgb,var(--vault-a) 42%,#34445f);box-shadow:0 20px 65px color-mix(in srgb,var(--vault-a) 10%,#0005)}
+.main>.content .theme-hero{border-color:color-mix(in srgb,var(--vault-a) 54%,#3e5481);box-shadow:0 22px 75px color-mix(in srgb,var(--vault-b) 12%,#0005)}
+.main>.content .stat,.main>.content .profile-metric{border-top-color:color-mix(in srgb,var(--vault-a) 45%,#2c303e)}
+/* Dedicated effect control — especially discoverable for phone users. */
+#motionButton{flex:none;white-space:nowrap;border:1px solid color-mix(in srgb,var(--vault-a) 40%,#39465b);background:linear-gradient(130deg,#242b40,#141b2d);color:#e7edff;font-size:11px;letter-spacing:.2px}
+#motionButton:hover{background:#303954;border-color:var(--vault-a)}
+#motionButton .motion-glyph{font-size:16px;color:var(--vault-a)}
+#motionButton .motion-current{color:#c3cbe0}
+.motion-settings h2{font-size:27px;margin:8px 0 10px;letter-spacing:-.5px}
+.motion-settings .motion-explain{font-size:12px;color:#afbcd1;line-height:1.75;max-width:570px}
+.motion-choices{display:grid;gap:10px;margin:22px 0}
+.motion-choice{display:flex;align-items:flex-start;gap:14px;text-align:left;padding:17px;border-radius:14px;border:1px solid #3b4b66;background:linear-gradient(140deg,#1d263b,#161e30);color:#f1f6ff;cursor:pointer}
+.motion-choice.selected{border-color:#c6b0f7;background:linear-gradient(130deg,#3c315a,#202846);box-shadow:inset 0 1px 0 #ffffff24}
+.motion-choice .motion-radio{height:19px;width:19px;border:2px solid #8797b5;border-radius:50%;flex:none;margin-top:2px}
+.motion-choice.selected .motion-radio{border:5px solid #d8bbff}
+.motion-choice strong{font-size:14px;display:block}
+.motion-choice small{display:block;color:#acb9cf;font-size:11px;line-height:1.5;margin-top:3px}
+.motion-choice .motion-preview{font-size:20px;color:#e9cfff;margin-left:auto;flex:none}
+.motion-device-note{margin:8px 0 0;font-size:11px;color:#bbcabd;line-height:1.7}
+[data-vault-motion="off"] .vault-aurora,[data-vault-motion="off"] .vault-layer,[data-vault-motion="off"] .vault-ring{opacity:0;visibility:hidden}
+[data-vault-motion="off"] .vault-atmosphere{background:linear-gradient(130deg,#0c101b,#101727)}
+[data-vault-motion="gentle"] .vault-sprite--ray,[data-vault-motion="gentle"] .vault-sprite--gear{opacity:0}
+[data-vault-motion="gentle"] .vault-layer-near{opacity:.64}
+[data-vault-motion="gentle"] .vault-aurora{opacity:.14;filter:blur(48px)}
+[data-vault-motion="gentle"] .vault-ring{opacity:.17}
+[data-vault-motion="cinematic"] .vault-aurora{opacity:.36}
+[data-vault-motion="cinematic"] .vault-ring{opacity:.65}
+[data-vault-motion="cinematic"] .vault-layer-near{opacity:.98}
+[data-vault-motion="cinematic"] .vault-layer-far{opacity:.75}
+/* Both the explicit Off setting and OS accessibility preference win over animation presets. */
+[data-vault-motion="off"] .vault-atmosphere *,
+[data-vault-motion="off"] .hero:after,
+[data-vault-motion="off"] .theme-hero *,
+[data-vault-motion="off"] .profile-page *,
+[data-vault-motion="off"] .theme-tile *,
+[data-vault-motion="off"] .theme-tile{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){
+ .vault-atmosphere .vault-aurora,.vault-atmosphere .vault-ring,.vault-atmosphere .vault-layer{display:none!important}
+ .vault-atmosphere *, .theme-hero *, .profile-page *, .theme-tile, .theme-tile *{animation:none!important;transition:none!important}
+ .main>.content .hero:after{display:none}
+}
+@media(prefers-reduced-data:reduce){.vault-atmosphere .vault-layer-far{display:none}}
+@media(max-width:1000px){.vault-atmosphere{left:78px}.vault-sprite--ray{display:none}}
+@media(max-width:735px){
+ .vault-atmosphere{left:0}
+ .vault-aurora{filter:blur(35px)!important}
+ .vault-layer-far{display:none}
+ .vault-ring{width:96vw;right:-64%;top:17%}
+ #motionButton{position:fixed;z-index:41;right:14px;bottom:calc(17px + env(safe-area-inset-bottom));min-width:60px;min-height:42px;border-radius:14px;box-shadow:0 9px 32px #0009;background:#242a42ed;padding:10px 11px;justify-content:center}
+ #motionButton .motion-label,#motionButton .motion-current{display:none}
+ #motionButton .motion-glyph{font-size:17px}
+ #motionButton:after{content:"FX";color:#e1e9fc;font-size:11px;font-weight:850;letter-spacing:1px}
+}
