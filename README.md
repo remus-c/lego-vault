@@ -12,12 +12,13 @@ The website is a static HTML collection tracker with separate **Owned**, **Star 
 - Optional private cloud synchronization across devices using a separate Supabase project.
 - Optional LEGO set details lookup (name, year, piece count, image preview) with a personal Rebrickable API key, stored only in the local browser.
 
-## Enable cloud sync (owner setup)
-1. Create a **separate** Supabase project for LEGO Vault on a plan whose price you accept.
-2. Run [supabase/schema.sql](./supabase/schema.sql) as a migration. It creates the `public.vault_state` table with row-level security. Each signed-in user can only access their own row.
-3. In Supabase > Authentication > URL Configuration, set **Site URL** to `https://remus-c.github.io/lego-vault/` and add the same path as an allowed redirect URL.
-4. Configure the project **URL** and its **publishable** (or legacy anon) key on the website using the *Cloud Sync* button. To ship the configuration automatically across devices, add a `cloud-config.js` script with `window.VAULT_CLOUD_CONFIG={url:'https://PROJECT.supabase.co',publishableKey:'sb_publishable_...'};` and reference it **before** `cloud.js` in `index.html`.
-5. Sign in with the same email on each device, through the emailed magic link.
+## Cloud sync — project created (18 October 2026)
+- The separate **LEGO Vault** Supabase project is active in `eu-north-1`. Quoted project cost was 0 per month; free usage limits apply.
+- `public.vault_state` has been created and row-level security enabled, with owner-only select/insert/update/delete policies.
+- Public project URL and **publishable** key (not a secret) are in [cloud-config.js](./cloud-config.js), loaded before [cloud.js](./cloud.js).
+- **Still required from the owner:** In the [Supabase authentication dashboard](https://supabase.com/dashboard/project/bfpzdyhfctwugtulbsna/auth/url-configuration), set **Site URL** to `https://remus-c.github.io/lego-vault/` and add `https://remus-c.github.io/lego-vault/**` under **Redirect URLs** (or the exact site URL). Save those settings.
+- Next, open the website on the **device containing your latest local edits**, export a backup, click **Cloud Sync**, and request a sign-in email. Follow the emailed link. Repeat on other devices using the same email.
+- The login and cross-device flow have **not** yet been tested end-to-end with a real account. No user data has been imported to the cloud yet.
 
 **Do not use a Supabase secret/service-role key in any public file or browser.** Only publishable/anon keys are appropriate for the browser. RLS controls who can read or change a personal collection.
 
