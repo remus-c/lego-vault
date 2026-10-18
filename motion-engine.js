@@ -90,6 +90,8 @@ function makeSprites(palette){
  near.append(close);far.append(distant);
 }
 function update(force=false){
+ const saved=state?.preferences?.motion;
+ if(MODES.includes(saved)&&saved!==mode){mode=saved;force=true}
  mount();if(!scene)return;
  const p=colors(ambientTheme());
  const footprint=p.id+'/'+p.world+'/'+active()+'/'+(paused?'paused':'shown')+'/'+((touch?.matches||window.innerWidth<735)?'small':'desktop');
@@ -139,6 +141,7 @@ function locate(x){
 }
 function setSpotlight(x){spotlightTheme=x||'';update()}
 function clearSpotlight(){spotlightTheme='';update()}
+function clearHover(){hoverTheme=''}
 document.addEventListener('click',e=>{
  const b=e.target.closest('[data-motion-choice]');
  if(b){setMode(b.dataset.motionChoice);openSettings()}
@@ -164,6 +167,6 @@ document.addEventListener('pointermove',e=>{
 document.addEventListener('visibilitychange',()=>{paused=document.hidden;root.classList.toggle('vault-paused',paused);update(true)});
 window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>update(),180)},{passive:true});
 media?.addEventListener?.('change',()=>update(true));
-window.VaultAtmosphere={update,setSpotlight,clearSpotlight,openSettings,setMode,getMode:()=>mode,getWorld:()=>root.dataset.vaultWorld};
+window.VaultAtmosphere={update,setSpotlight,clearSpotlight,clearHover,openSettings,setMode,getMode:()=>mode,getWorld:()=>root.dataset.vaultWorld};
 setupButton();update(true);
 })();
