@@ -1,0 +1,195 @@
+/* LEGO Vault 3.2 — Theme-native collector exhibit cards.
+   Structural layout is reusable for all 47 official themes via the 21 visual worlds.
+   Decorations are original CSS silhouettes, not LEGO-owned artwork. */
+:root{--v-card-accent:#9dbaff;--v-card-secondary:#e5d8ff;--v-card-deep:#253550}
+/* Make ownership feel like an exhibit, not a retail spreadsheet. */
+.set-card.vault-set-card{
+ --v-card-glass:color-mix(in srgb,var(--v-card-deep) 73%,#141824);
+ isolation:isolate;
+ position:relative;
+ border-radius:18px;
+ border:1px solid color-mix(in srgb,var(--v-card-accent) 38%,#253040);
+ background:linear-gradient(155deg,color-mix(in srgb,var(--v-card-deep) 76%,#1c1e2d),#151a27 82%);
+ box-shadow:0 8px 30px #0207134d,inset 0 1px #ffffff13;
+ transition:transform .28s cubic-bezier(.2,.72,.2,1),border-color .28s,box-shadow .28s;
+}
+.set-card.vault-set-card:before{
+ content:"";position:absolute;z-index:4;pointer-events:none;left:13px;right:13px;top:0;
+ height:2px;background:linear-gradient(90deg,transparent,var(--v-card-accent) 25%,var(--v-card-secondary) 60%,transparent);
+ opacity:.72;transform:scaleX(.72);transform-origin:center;
+ transition:transform .4s,opacity .4s;
+}
+.set-card.vault-set-card:hover,
+.set-card.vault-set-card:focus-within{
+ transform:translateY(-5px);
+ border-color:color-mix(in srgb,var(--v-card-accent) 85%,#fff);
+ box-shadow:0 19px 39px #02050c91,0 0 32px color-mix(in srgb,var(--v-card-accent) 19%,transparent),inset 0 1px #ffffff25;
+}
+.set-card.vault-set-card:hover:before,.set-card.vault-set-card:focus-within:before{opacity:1;transform:scaleX(1)}
+.set-card.vault-set-card .set-image{
+ height:222px;
+ background:radial-gradient(ellipse at 45% 39%,color-mix(in srgb,var(--v-card-secondary) 24%,#f9fcff) 0%,#e4ebf3 57%,color-mix(in srgb,var(--v-card-accent) 20%,#cfdae9) 100%);
+ isolation:isolate;position:relative;
+}
+.set-card.vault-set-card .set-image:after{
+ content:"";position:absolute;z-index:2;pointer-events:none;left:12%;right:12%;bottom:0;height:26px;
+ border-radius:50%;background:radial-gradient(ellipse,#2339552c 8%,transparent 68%);
+}
+.set-card.vault-set-card .set-image .fallback-art{z-index:0;background:transparent!important}
+.set-card.vault-set-card .set-image img{
+ z-index:2;max-width:95%;max-height:95%;object-fit:contain;
+ mix-blend-mode:multiply;
+ filter:drop-shadow(0 11px 7px #152b373b);
+ transition:transform .5s cubic-bezier(.18,.7,.22,1),filter .3s;
+}
+.set-card.vault-set-card:hover .set-image img,.set-card.vault-set-card:focus-within .set-image img{
+ transform:scale(1.065) translateY(-3px);
+ filter:drop-shadow(0 16px 10px #152b3752);
+}
+.set-card.vault-set-card .set-image .status-pill{
+ z-index:6;box-shadow:0 6px 15px #101e2633;
+ backdrop-filter:blur(5px);background:#152e32ec;color:#abf5cc;
+}
+.set-card.vault-set-card .set-image .status-pill.wishlist{color:#ffe5a0;background:#483a29ec}
+.set-card.vault-set-card .set-image .status-pill.unknown{color:#ffd5b4;background:#5c3732e8}
+.set-card.vault-set-card .set-image .set-code{
+ z-index:6;background:#f7f9f2e9;color:#283145;border:1px solid #ffffffa8;
+}
+.vault-exhibit-art{
+ position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none;
+ color:var(--v-card-accent);
+}
+.vault-exhibit-dust{
+ position:absolute;inset:0;opacity:.35;
+ background-image:radial-gradient(circle,currentColor 1px,transparent 1.7px),radial-gradient(circle,var(--v-card-secondary) 1px,transparent 1.7px);
+ background-position:0 0,21px 24px;background-size:47px 53px,79px 65px;
+ mask-image:linear-gradient(100deg,#0006,transparent 68%,#0006);
+}
+.vault-exhibit-aurora{
+ position:absolute;width:93%;height:65%;left:8%;top:-24%;
+ background:radial-gradient(ellipse,color-mix(in srgb,var(--v-card-accent) 37%,transparent),transparent 68%);
+ filter:blur(18px);opacity:.75;animation:vault-exhibit-fog 11s ease-in-out infinite alternate;
+}
+.vault-exhibit-halo{
+ position:absolute;width:69%;height:82%;top:12%;right:13%;border-radius:50%;
+ border:1px solid color-mix(in srgb,var(--v-card-accent) 34%,#fff3);
+ box-shadow:0 0 0 14px color-mix(in srgb,var(--v-card-accent) 6%,transparent),0 0 0 33px color-mix(in srgb,var(--v-card-secondary) 3%,transparent);
+ opacity:.45;transform:rotateX(24deg);
+}
+.vault-exhibit-motif{
+ position:absolute;z-index:0;right:-10%;top:12%;font-size:135px;line-height:1;
+ opacity:.115;font-weight:800;pointer-events:none;text-shadow:0 0 30px var(--v-card-accent);
+ transform:rotate(-13deg);
+}
+.vault-exhibit-brick{
+ position:absolute;z-index:1;width:45px;height:28px;border-radius:4px;
+ background:linear-gradient(145deg,#ffffff65,color-mix(in srgb,var(--v-card-accent) 75%,#5b6f8e));
+ border:1px solid #ffffff7c;box-shadow:inset -3px -4px 6px #1c2a3d47,0 7px 8px #121f2b30;
+ opacity:.45;
+}
+.vault-exhibit-brick i{position:absolute;top:-7px;width:12px;height:8px;border-radius:50%;background:color-mix(in srgb,var(--v-card-accent) 60%,white);border:1px solid #ffffff85;box-shadow:0 2px 3px #0002}
+.vault-exhibit-brick i:first-child{left:6px}.vault-exhibit-brick i:last-child{right:6px}
+.vault-exhibit-brick.one{left:5%;bottom:15%;transform:rotate(-22deg);animation:vault-exhibit-float 13s ease-in-out infinite alternate}
+.vault-exhibit-brick.two{right:3%;top:21%;transform:rotate(21deg) scale(.62);animation:vault-exhibit-float 9s ease-in-out -4s infinite alternate-reverse}
+.vault-exhibit-track{
+ position:absolute;left:-15%;bottom:9%;width:130%;height:65px;opacity:.14;
+ background:repeating-linear-gradient(90deg,var(--v-card-accent) 0px 1px,transparent 1px 26px);
+ transform:perspective(200px) rotateX(67deg);
+}
+.vault-exhibit-ribbon{
+ position:absolute;z-index:5;bottom:12px;left:14px;
+ font-size:9px;letter-spacing:1.3px;font-weight:900;
+ padding:7px 10px;background:#101c30e8;
+ border:1px solid color-mix(in srgb,var(--v-card-accent) 35%,transparent);
+ border-radius:8px;color:var(--v-card-secondary);max-width:calc(100% - 25px);
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+ box-shadow:0 5px 12px #09182a46;
+}
+.vault-exhibit-ribbon .vault-exhibit-pin{color:var(--v-card-accent);font-size:9px;margin-right:3px}
+.vault-set-card .card-content{position:relative;z-index:2;padding:15px 16px 17px;background:linear-gradient(160deg,color-mix(in srgb,var(--v-card-deep) 46%,#182031),#151a26)}
+.vault-set-card .tag{color:var(--v-card-secondary);font-size:10px;letter-spacing:.75px;line-height:1.55}
+.vault-set-card .tag .vault-collector-theme{display:inline-flex;align-items:center;gap:7px}
+.vault-set-card .vault-collector-theme i{color:var(--v-card-accent);font-style:normal;font-size:15px}
+.vault-set-card h3{color:#f9f9fd;font-weight:800;letter-spacing:-.45px}
+.vault-set-card .details-meta{color:#aab8d0}
+.vault-set-card .price-box small{color:#a4b1c8}
+.vault-set-card .price-box b{color:#f7efff}
+.vault-set-card .card-link{background:color-mix(in srgb,var(--v-card-accent) 13%,#182038);color:#f4f6ff;border:1px solid color-mix(in srgb,var(--v-card-accent) 46%,#263247);transition:background .18s,color .18s,border-color .18s}
+.vault-set-card .card-link:hover,.vault-set-card .card-link:focus-visible{background:var(--v-card-accent);color:#15202e;border-color:var(--v-card-accent)}
+/* Theme signatures: variation comes from shared world scene, not hard-coded set IDs. */
+[data-vault-world="galaxy"] .vault-exhibit-dust{opacity:.72}
+[data-vault-world="galaxy"] .vault-exhibit-halo{border-style:dashed;animation:vault-exhibit-orbit 31s linear infinite}
+[data-vault-world="galaxy"] .vault-exhibit-track{transform:perspective(220px) rotateX(56deg);opacity:.27}
+[data-vault-world="noir"] .vault-exhibit-aurora{opacity:.55;filter:blur(24px)}
+[data-vault-world="noir"] .vault-exhibit-track{background:repeating-linear-gradient(90deg,#19283f 0 12px,#29354b 12px 15px,transparent 15px 37px);opacity:.43;transform:none;height:47px;bottom:0}
+[data-vault-world="noir"] .vault-exhibit-dust{background-image:repeating-linear-gradient(110deg,transparent 0 12px,var(--v-card-accent) 13px 14px,transparent 15px 30px);opacity:.19}
+[data-vault-world="garden"] .vault-exhibit-motif{font-family:Georgia,serif;font-size:165px;opacity:.13}
+[data-vault-world="garden"] .vault-exhibit-brick{border-radius:90% 5% 90% 4%;width:33px;height:19px;transform:rotate(34deg)}
+[data-vault-world="garden"] .vault-exhibit-brick i{display:none}
+[data-vault-world="garden"] .vault-exhibit-track{background:repeating-linear-gradient(35deg,var(--v-card-accent) 0 1px,transparent 1px 20px)}
+[data-vault-world="mechanical"] .vault-exhibit-track,[data-vault-world="racing"] .vault-exhibit-track{opacity:.4;background:repeating-linear-gradient(90deg,var(--v-card-accent) 0 2px,transparent 2px 16px);transform:perspective(190px) rotateX(66deg)}
+[data-vault-world="mechanical"] .vault-exhibit-halo{border-style:dashed;transform:rotate(18deg);animation:vault-exhibit-orbit 25s linear infinite}
+[data-vault-world="racing"] .vault-exhibit-dust{background-image:repeating-linear-gradient(115deg,transparent 0 17px,var(--v-card-accent) 18px 19px,transparent 20px 49px);opacity:.32}
+[data-vault-world="pixel"] .vault-exhibit-halo{border-radius:9px;box-shadow:0 0 0 10px color-mix(in srgb,var(--v-card-accent) 8%,transparent),0 0 0 25px color-mix(in srgb,var(--v-card-secondary) 4%,transparent)}
+[data-vault-world="pixel"] .vault-exhibit-dust{background-image:repeating-linear-gradient(0deg,transparent 0 12px,var(--v-card-accent) 13px 14px),repeating-linear-gradient(90deg,transparent 0 12px,var(--v-card-accent) 13px 14px);opacity:.22}
+[data-vault-world="fantasy"] .vault-exhibit-motif,[data-vault-world="magic"] .vault-exhibit-motif{font-family:Georgia,serif;font-style:italic}
+[data-vault-world="urban"] .vault-exhibit-track,[data-vault-world="architecture"] .vault-exhibit-track{transform:none;height:65px;bottom:0;opacity:.25;background:repeating-linear-gradient(90deg,var(--v-card-accent) 0 1px,transparent 1px 24px)}
+/* Product detail exhibits share exactly the same theme tokens. */
+.modal .vault-themed-modal .modal-hero{background:linear-gradient(137deg,color-mix(in srgb,var(--v-card-deep) 72%,#131b28),#1c2335)}
+.modal .vault-themed-modal .modal-photo{isolation:isolate;overflow:hidden;background:radial-gradient(circle at 45% 35%,#f9fdff 0%,#e3ebf4 70%,color-mix(in srgb,var(--v-card-accent) 20%,#d6e2ed))}
+.modal .vault-themed-modal .modal-photo>.fallback-art{z-index:0}
+.modal .vault-themed-modal .modal-photo>img{position:relative;z-index:3;mix-blend-mode:multiply;filter:drop-shadow(0 17px 12px #12294342)}
+.modal .vault-themed-modal .vault-exhibit-art{z-index:0}
+.modal .vault-themed-modal .modal-details{border-left:2px solid color-mix(in srgb,var(--v-card-accent) 48%,transparent)}
+.modal .vault-themed-modal .modal-details .eyebrow{color:var(--v-card-secondary)}
+.modal .vault-themed-modal .modal-stats b{color:#fff}
+.modal .vault-themed-modal .modal-stats span{color:#c2cee5}
+.modal .vault-themed-modal .vault-modal-world{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border:1px solid color-mix(in srgb,var(--v-card-accent) 54%,transparent);border-radius:8px;background:#18243c;color:var(--v-card-secondary);font-size:10px;letter-spacing:1px;font-weight:850;margin:0 0 8px}
+.modal .vault-themed-modal .modal-form{background:linear-gradient(180deg,#1b2232,#191f2c)}
+.modal .vault-themed-modal .modal-photo>.vault-exhibit-ribbon{z-index:5}
+.modal .vault-themed-modal .modal-photo>.vault-exhibit-art .vault-exhibit-motif{font-size:200px}
+/* Profile showcase is a smaller version of the same display system. */
+.profile-page .profile-feature.vault-feature{position:relative;isolation:isolate;border-color:color-mix(in srgb,var(--v-card-accent) 55%,#37455e);box-shadow:0 10px 30px color-mix(in srgb,var(--v-card-accent) 10%,#0005);background:linear-gradient(140deg,var(--v-card-deep),#161a28)}
+.profile-page .profile-feature.vault-feature .profile-feature-image{isolation:isolate;background:radial-gradient(circle at 45% 30%,#f9fbff,#dce7ef 70%,color-mix(in srgb,var(--v-card-accent) 24%,#cfdee9))}
+.profile-page .profile-feature.vault-feature .profile-feature-image img{mix-blend-mode:multiply;z-index:3;max-width:95%;max-height:96%;filter:drop-shadow(0 10px 8px #162a364a);transition:transform .32s,filter .32s}
+.profile-page .profile-feature.vault-feature:hover .profile-feature-image img{transform:scale(1.055) translateY(-3px);filter:drop-shadow(0 18px 11px #162a3650)}
+.profile-page .profile-feature.vault-feature .profile-feature-no{z-index:6}
+.profile-page .profile-feature.vault-feature .profile-feature-fallback{z-index:1;background:transparent}
+.profile-page .profile-feature.vault-feature .profile-feature-content{background:linear-gradient(145deg,var(--v-card-deep),#1a2030);position:relative;z-index:2}
+.profile-page .profile-feature.vault-feature .profile-feature-content small{color:var(--v-card-secondary)}
+.profile-page .profile-feature.vault-feature .profile-feature-content button{color:var(--v-card-secondary);border-bottom-color:var(--v-card-accent)}
+.profile-page .profile-feature.vault-feature:hover,.profile-page .profile-feature.vault-feature:focus-within{border-color:var(--v-card-accent);box-shadow:0 15px 36px color-mix(in srgb,var(--v-card-accent) 23%,#0004)}
+.profile-page .profile-feature.vault-feature .vault-exhibit-ribbon{font-size:8px;padding:5px 8px;bottom:9px}
+@keyframes vault-exhibit-fog{to{transform:translate3d(12%,-6%,0) scale(1.13)}}
+@keyframes vault-exhibit-orbit{to{transform:rotate(360deg)}}
+@keyframes vault-exhibit-float{to{translate:0 -12px}}
+/* Visual effects never compromise interaction or energy/accessibility preferences. */
+[data-vault-motion="off"] .vault-exhibit-art *,[data-vault-motion="off"] .vault-set-card,[data-vault-motion="off"] .vault-set-card *,[data-vault-motion="off"] .vault-feature,[data-vault-motion="off"] .vault-feature *{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){
+ .vault-exhibit-art *, .vault-set-card, .vault-set-card *, .vault-feature, .vault-feature *{animation:none!important;transition:none!important}
+ .vault-set-card:hover,.vault-set-card:focus-within{transform:none!important}
+ .vault-set-card:hover .set-image img,.vault-feature:hover img{transform:none!important}
+}
+@media(hover:none){
+ .vault-set-card:hover{transform:none;box-shadow:0 8px 30px #0207134d}
+ .vault-set-card:hover .set-image img{transform:none}
+ .vault-set-card:focus-within{border-color:var(--v-card-accent)}
+}
+@media(max-width:735px){
+ .set-card.vault-set-card .set-image{height:187px}
+ .vault-set-card .card-content{padding:12px}
+ .vault-exhibit-ribbon{font-size:7px;letter-spacing:.7px;bottom:8px;left:8px;padding:5px 7px}
+ .vault-exhibit-halo{opacity:.36}
+ .vault-exhibit-motif{font-size:95px}
+ .vault-exhibit-brick.two{display:none}
+ .vault-set-card .tag{font-size:9px}
+ .vault-set-card .vault-collector-theme i{font-size:13px}
+ .modal .vault-themed-modal .modal-details{border-left:0;border-top:2px solid var(--v-card-accent)}
+}
+@media(max-width:390px){
+ .set-card.vault-set-card .set-image{height:154px}
+ .vault-exhibit-ribbon{max-width:75%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+ .vault-set-card .card-bottom{gap:5px}
+ .vault-set-card .price-box b{font-size:12px}
+ .vault-set-card .card-link{font-size:9px;padding:6px 7px}
+}
