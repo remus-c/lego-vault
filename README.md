@@ -1,4 +1,4 @@
-# LEGO Vault 3.0
+# LEGO Vault 3.2
 
 Live website (GitHub Pages): https://remus-c.github.io/lego-vault/
 
@@ -44,9 +44,9 @@ The website is a static HTML collection tracker with separate **Owned**, **Star 
 - The separate **LEGO Vault** Supabase project is active in `eu-north-1`. Quoted project cost was 0 per month; free usage limits apply.
 - `public.vault_state` has been created and row-level security enabled, with owner-only select/insert/update/delete policies.
 - Public project URL and **publishable** key (not a secret) are in [cloud-config.js](./cloud-config.js), loaded before [cloud.js](./cloud.js).
-- **Still required from the owner:** In the [Supabase authentication dashboard](https://supabase.com/dashboard/project/bfpzdyhfctwugtulbsna/auth/url-configuration), set **Site URL** to `https://remus-c.github.io/lego-vault/` and add `https://remus-c.github.io/lego-vault/**` under **Redirect URLs** (or the exact site URL). Save those settings.
-- Next, open the website on the **device containing your latest local edits**, export a backup, click **Cloud Sync**, and request a sign-in email. Follow the emailed link. Repeat on other devices using the same email.
-- The login and cross-device flow have **not** yet been tested end-to-end with a real account. No user data has been imported to the cloud yet.
+- Supabase authentication redirect URLs for the GitHub Pages site were saved by the owner. An initial user sign-in and one saved cloud collection record were verified during setup. **End-to-end cross-device and real-browser sync QA remains pending.**
+- Before using a different device or resolving sync conflicts, export a **Backup** from the browser containing the most recent edits. Sign in with the same email on the other device, and review any browser-vs-cloud version prompts carefully.
+- Current cloud state is private to the authenticated user. GitHub commits and public seed data do not automatically include changes stored by that user in Supabase.
 
 **Do not use a Supabase secret/service-role key in any public file or browser.** Only publishable/anon keys are appropriate for the browser. RLS controls who can read or change a personal collection.
 
